@@ -15,3 +15,19 @@ someVariable
 calculateAge
 delayedDeparture
 */
+
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", () => {
+  const text = document.querySelector(".text").value,
+    output = document.querySelector(".output");
+
+  const rows = text.split("\n");
+  let out = [];
+
+  for (const row of rows) {
+    let [first, second] = row.trim().toLowerCase().split("_");
+    out.push(`${first}${second.replace(second[0], second[0].toUpperCase())}`);
+  }
+  output.innerText = out.join("\n");
+});
